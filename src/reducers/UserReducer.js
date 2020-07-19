@@ -1,0 +1,13 @@
+import {  SET_USER ,GET_USER ,RESET_USER } from "../actions/types"
+export default function (state = null , action) {
+    switch (action.type) {
+    
+        case SET_USER:
+            return action.payload
+        case GET_USER:
+            return action.payload
+        case RESET_USER: 
+            return null
+        default: return state
+    }
+}

@@ -1,13 +1,24 @@
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import Main from './Main';
+import { Provider } from "react-redux"
+import { createStore, applyMiddleware } from "redux"
+import reduxThunk from "redux-thunk"
+import reducers from "./reducers"
 import * as serviceWorker from './serviceWorker';
 
+const store = createStore(reducers, {}, applyMiddleware(reduxThunk))
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <div style={{ backgroundColor: '#f5f5f5' }}>
+    <Provider store={store}>
+      <div>
+        <Main />
+      </div>
+    </Provider>
+  </div>,
   document.getElementById('root')
 );
 
